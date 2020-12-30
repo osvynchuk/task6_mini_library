@@ -1,0 +1,1 @@
+# task6_mini_library
