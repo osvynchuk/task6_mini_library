@@ -1,0 +1,19 @@
+Default template arguments
+
+Default template arguments are specified in the parameter lists after the = sign. Defaults can be specified for any kind of template parameter (type, non-type, or template), but not to parameter packs.
+
+If the default is specified for a template parameter of a primary class template, primary variable template, (since C++14) or alias template, each subsequent template parameter must have a default argument, except the very last one may be a template parameter pack. In a function template, there are no restrictions on the parameters that follow a default, and a parameter pack may be followed by more type parameters only if they have defaults or can be deduced from the function arguments.
+
+Default parameters are not allowed
+
+    in the out-of-class definition of a member of a class template (they have to be provided in the declaration inside the class body). Note that member templates of non-template classes can use default parameters in their out-of-class definitions (see GCC bug 53856)
+    in friend class template declarations 
+
+    in any function template declaration or definition 
+
+	(until C++11)
+
+On a friend function template declaration, default template arguments are allowed only if the declaration is a definition, and no other declarations of this function appear in this translation unit.
+	(since C++11)
+
+Default template arguments that appear in the declarations and the definition are merged similarly to default function arguments: 
